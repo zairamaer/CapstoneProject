@@ -1,130 +1,68 @@
-/* Header and Toolbar */
 ion-toolbar {
-    --background: #2c3e50; 
-    --color: white;
+  --background: #2c3e50; /* Dark background color */
+  --color: white;        /* White text color */
+}
+
+.activity-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    position: relative;
   }
   
-  ion-title {
-    font-size: 20px;
+  ion-item {
+    --inner-padding-end: 0;
+  }
+  
+  .date-label, .time-label, .activity-label {
     font-weight: bold;
-  }
-  
-  /* New Post Input */
-  .new-post-input {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f4f4f4;
-    padding: 8px;
-    margin-bottom: 8px;
-  }
-  
-  ion-textarea {
-    flex: 1;
-    margin-right: 8px;
-    --padding-start: 0;
-  }
-  
-  /* Post Button */
-  .add-post {
-    margin-top: 8px;
-    --background: #3b5998; /* Facebook blue background */
-    --color: white;
-    --border-radius: 8px;
-  }
-  
-  /* Post Card */
-  .post-list {
-    margin-top: 8px;
-  }
-  
-  .post-card {
-    margin-bottom: 8px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    background-color: #fff;
-  }
-  
-  .post-card ion-card-header {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    background-color: #f9f9f9;
-  }
-  
-  .post-card ion-card-title {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .post-card ion-card-subtitle {
-    font-size: 12px;
-    color: #777;
-  }
-  
-  .post-card ion-card-content {
-    padding: 8px;
+    color: #4A4A4A;
     font-size: 14px;
+    margin-top: 25px;
   }
   
-  /* Post Actions */
-  .post-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
-    border-top: 1px solid #ddd;
-    background-color: #f9f9f9;
+  .date-text, .time-text, .activity-text {
+    color: #333333;
+    font-size: 16px;
+    margin-top: 20px;
   }
   
-  .post-actions ion-icon {
-    color: #3b5998; /* Facebook blue color */
-    margin-right: 8px;
+  .date-text {
+    color: #1E90FF; /* Customize date color */
   }
   
-  /* Comment Item */
-  .comment-item {
-    margin-left: 40px;
-    padding: 8px;
-    border-top: 1px solid #ddd;
-    background-color: #f4f4f4;
+  .time-text {
+    color: #32CD32; /* Customize time color */
   }
   
-  .comment-item ion-avatar {
-    margin-right: 8px;
-  }
-  
-  /* New Comment Input */
-  .new-comment-input {
-    border-top: 1px solid #ddd;
-    padding: 8px;
-    background-color: #f4f4f4;
-  }
-  
-  /* Buttons */
+ 
   ion-button {
-    --background: #3b5998; /* Facebook blue background */
-    --color: white;
-    margin: 4px 0;
-    border-radius: 8px;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
   }
   
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .post-card {
-      margin: 5px 0;
-    }
-  
-    .post-actions {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .post-actions ion-icon {
-      margin-right: 0;
-      margin-bottom: 5px;
-    }
-  
-    .comment-item {
-      margin-left: 20px;
-    }
+  ion-content {
+    --background: #f3f4f6; /* Light background color */
   }
+  
+  .delete-button {
+    position: absolute;
+    right: 3px; /* Adjust right spacing */
+    z-index: 10;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+    height: 40px; /* Adjust the size of the button */
+    width: 40px;  /* Adjust the size of the button */
+    background: transparent; /* Ensure the background is transparent */
+    border: none; /* Remove border if necessary */
+    --box-shadow: none; /* Remove box shadow if necessary */
+  }
+
+  ion-select{
+    margin-right: 40px;
+  }
+   
   

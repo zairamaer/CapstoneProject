@@ -1,64 +1,79 @@
 import { Component } from '@angular/core';
-
-interface Post {
-  avatar: string;
-  name: string;
-  timestamp: string;
-  content: string;
-  comments: Comment[];
-  likes: number;
-  showComments?: boolean; // New property for controlling comment visibility
-}
-
-interface Comment {
-  avatar: string;
-  name: string;
-  content: string;
-}
+import { ModalController } from '@ionic/angular';
+import { AddActivityComponent } from '../add-activity/add-activity.component'; // Adjust the path as needed
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  posts: Post[] = [];
-  newPostContent: string = '';
+  activities: { title: string, date: string, time: string, childId: number }[] = [];
+  filteredActivities: { title: string, date: string, time: string }[] = [];
+  children = [
+    { id: 1, name: 'Child 1', photoUrl: 'path/to/photo1.jpg' },
+    { id: 2, name: 'Child 2', photoUrl: 'path/to/photo2.jpg' },
+    // Add more children as needed
+  ];
+  selectedChild: any;
 
-  constructor() {}
+  constructor(private modalController: ModalController) {
+    // Initialize the selectedChild with a default child if needed
+    this.selectedChild = this.children[0]; // Example: set the first child as default
+    this.filterActivities(); // Filter activities based on the default child
+  }
 
-  addPost() {
-    if (this.newPostContent.trim() !== '') {
-      const newPost: Post = {
-        avatar: 'assets/avatar.png', // Replace with dynamic user avatar
-        name: 'Parent Name', // Replace with dynamic user name
-        timestamp: new Date().toLocaleTimeString(),
-        content: this.newPostContent,
-        comments: [],
-        likes: 0,
-        showComments: false, // Initialize the comments section as hidden
-      };
-      this.posts.unshift(newPost); // Add new post at the beginning of the array
-      this.newPostContent = ''; // Clear the textarea
+  async openAddActivityModal() {
+    const modal = await this.modalController.create({
+      component: AddActivityComponent,
+    });
+
+    modal.onDidDismiss().then((result) => {
+      if (result.data) {
+        // Add the new activity to the list and filter
+        this.activities.push({ ...result.data, childId: this.selectedChild.id });
+        this.filterActivities();
+      }
+    });
+
+    return await modal.present();
+  }
+
+  formatDate(date: string): string {
+    const [year, month, day] = date.split('-');
+    const dateObj = new Date(`${year}-${month}-${day}`);
+    return dateObj.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
+  formatTime(time: string): string {
+    const [hours, minutes] = time.split(':');
+    const ampm = +hours >= 12 ? 'PM' : 'AM';
+    const hour12 = (+hours % 12) || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+  }
+
+  deleteActivity(index: number) {
+    this.activities.splice(index, 1);
+    this.filterActivities(); // Re-filter activities after deletion
+  }
+
+  onChildSelect(event: any) {
+    this.selectedChild = event.detail.value;
+    this.filterActivities(); // Update displayed activities based on the selected child
+    console.log('Selected child:', this.selectedChild);
+  }
+
+  private filterActivities() {
+    if (this.selectedChild) {
+      // Filter activities to only show those for the selected child
+      this.filteredActivities = this.activities.filter(activity => activity.childId === this.selectedChild.id);
+    } else {
+      // Show all activities if no child is selected (optional)
+      this.filteredActivities = this.activities;
     }
-  }
-
-  addComment(post: Post, commentContent: string) {
-    if (commentContent && commentContent.trim() !== '') {
-      const newComment: Comment = {
-        avatar: 'assets/avatar2.png', // Replace with dynamic user avatar
-        name: 'Another Parent', // Replace with dynamic user name
-        content: commentContent,
-      };
-      post.comments.push(newComment);
-    }
-  }
-
-  likePost(post: Post) {
-    post.likes++;
-  }
-
-  toggleComments(post: Post) {
-    post.showComments = !post.showComments;
   }
 }

@@ -1,65 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Forum</ion-title>
+    <ion-title>Daily Routine</ion-title>
+
+    <!-- Dropdown for selecting child -->
+    <ion-select 
+      slot="end" 
+      [(ngModel)]="selectedChild" 
+      (ionChange)="onChildSelect($event)"
+      class="child-select"
+      placeholder="Select Child">
+      <ion-select-option *ngFor="let child of children" [value]="child">
+        {{ child.name }}
+      </ion-select-option>
+    </ion-select>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <!-- New Post Input -->
-  <ion-item class="new-post-input">
-    <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-    <ion-textarea [(ngModel)]="newPostContent" placeholder="Write something..." auto-grow="true"></ion-textarea>
-  </ion-item>
-  <ion-button expand="block" class="add-post" (click)="addPost()">Post</ion-button>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Daily Routine</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <!-- Display Posts -->
-  <div class="post-list">
-    <ion-card *ngFor="let post of posts" class="post-card">
-      <ion-card-header>
-        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-        <ion-card-title>{{ post.name }}</ion-card-title>
-        <ion-card-subtitle>Posted {{ post.timestamp }}</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        <p>{{ post.content }}</p>
-      </ion-card-content>
-
-      <!-- Post Actions -->
-      <ion-item lines="none" class="post-actions">
-        <ion-icon name="thumbs-up-outline" (click)="likePost(post)"></ion-icon>
-        <ion-label class="option">Like ({{ post.likes }})</ion-label>
-
-        <!-- Comment Toggle Button -->
-        <ion-icon name="chatbubble-outline" (click)="toggleComments(post)"></ion-icon>
-        <ion-label class="option">Comments</ion-label>
-      </ion-item>
-
-      <!-- Comments Section -->
-      <div *ngIf="post.showComments">
-        <ion-list>
-          <ion-item lines="none" class="comment-item" *ngFor="let comment of post.comments">
-            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-            <ion-label>
-              <h3>{{ comment.name }}</h3>
-              <p>{{ comment.content }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-
-        <!-- New Comment Input -->
-        <ion-item class="new-comment-input">
-          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-          <ion-textarea #commentInput placeholder="Write a comment..." auto-grow="true"></ion-textarea>
-          <ion-button
-            slot="end"
-            (click)="addComment(post, commentInput.value || ''); commentInput.value = '';"
-            [disabled]="!commentInput.value || commentInput.value.trim() === ''"
-          >
-            Post
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card *ngFor="let activity of filteredActivities; let i = index" class="activity-card">
+          <!-- Delete Button -->
+          <ion-button fill="clear" color="danger" class="delete-button" (click)="deleteActivity(i)">
+            <ion-icon name="trash"></ion-icon>
           </ion-button>
-        </ion-item>
-      </div>
-    </ion-card>
-  </div>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label class="date-label">Date:</ion-label>
+              <ion-text class="date-text">{{ formatDate(activity.date) }}</ion-text>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label class="time-label">Time:</ion-label>
+              <ion-text class="time-text">{{ formatTime(activity.time) }}</ion-text>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label class="activity-label">Activity:</ion-label>
+              <ion-text class="activity-text">{{ activity.title }}</ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Floating Add Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary" (click)="openAddActivityModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -8,19 +8,20 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular'; // Import Ioni
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Import the AddChildModalComponent and any other components here
 import { AddChildModalComponent } from './add-child-modal/add-child-modal.component'; 
+import { AddActivityComponent } from './add-activity/add-activity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddChildModalComponent // Declare the AddChildModalComponent here
+    AddChildModalComponent, 
+    AddActivityComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule, // Ensure FormsModule is imported here
-    IonicModule.forRoot(), // Initialize IonicModule
+    FormsModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule
   ],
   providers: [

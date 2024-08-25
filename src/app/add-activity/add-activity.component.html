@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Activity</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="saveActivity()">
+    <!-- Routine Title Input -->
+    <ion-item>
+      <ion-label position="floating">Routine Title</ion-label>
+      <ion-input 
+        [(ngModel)]="activityTitle" 
+        name="title" 
+        placeholder="Enter title" 
+        required
+      ></ion-input>
+    </ion-item>
+
+    <!-- Date and Time Picker -->
+    <ion-item>
+      <ion-label position="floating">Date and Time</ion-label>
+      <ion-datetime
+        [(ngModel)]="activityDateTime"
+        name="dateTime"
+        displayFormat="MMMM DD, YYYY HH:mm"
+        pickerFormat="YYYY-MM-DDTHH:mm"
+        (ionChange)="onDateTimeChange($event)"
+        required
+      ></ion-datetime>
+    </ion-item>
+
+    <!-- Save Button -->
+    <ion-button expand="full" color="primary" type="submit">
+      Save Activity
+    </ion-button>
+  </form>
+</ion-content>
