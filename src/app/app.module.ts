@@ -10,12 +10,15 @@ import { AppComponent } from './app.component';
 
 import { AddChildModalComponent } from './add-child-modal/add-child-modal.component'; 
 import { AddActivityComponent } from './add-activity/add-activity.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddChildModalComponent, 
-    AddActivityComponent
+    AddActivityComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
