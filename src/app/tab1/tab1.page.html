@@ -1,17 +1,127 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar class="custom-toolbar">
+    <div class="header-content">
+      <!-- Title aligned to the left -->
+      <ion-title class="custom-title">ParentPal</ion-title>
+      
+      <!-- Navigation Button aligned to the right -->
+      <ion-button [routerLink]="['dashboard']" class="custom-button">
+        <ion-icon slot="start" name="arrow-forward" class="button-icon"></ion-icon>
+        <span>Go to Dashboard</span>
+      </ion-button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Welcome Message -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Welcome to ParentPal</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="happy-outline" color="primary" style="font-size: 64px; display: block; margin: 0 auto; animation: bounce 1s infinite;"></ion-icon>
+      <p>ParentPal is your trusted companion in tracking your child’s developmental milestones. With insights and analytics, we help you monitor progress and ensure your child is thriving.</p>
+    </ion-card-content>
+  </ion-card>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Introduction Section -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Understanding Developmental Milestones</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="information-circle-outline" color="tertiary" style="font-size: 48px; display: block; margin: 0 auto 16px;"></ion-icon>
+      <p>Developmental milestones are key indicators of a child’s growth. Here’s a quick guide based on CDC milestones from 2 months and beyond.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Milestones Overview by Age Group -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Milestones by Age</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-slides pager="true">
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('2-months')">
+            <ion-icon name="person" slot="start" color="danger"></ion-icon>
+            <ion-label>
+              <h2>2 Months</h2>
+              <p *ngIf="isMilestoneOpen('2-months')">Starts to smile, looks at parents, begins to follow things with eyes.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('4-months')">
+            <ion-icon name="sunny" slot="start" color="warning"></ion-icon>
+            <ion-label>
+              <h2>4 Months</h2>
+              <p *ngIf="isMilestoneOpen('4-months')">Holds head steady, pushes down on legs when feet are on a hard surface.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('6-months')">
+            <ion-icon name="sunny-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h2>6 Months</h2>
+              <p *ngIf="isMilestoneOpen('6-months')">Begins to sit without support, rolls over in both directions.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('9-months')">
+            <ion-icon name="happy" slot="start" color="success"></ion-icon>
+            <ion-label>
+              <h2>9 Months</h2>
+              <p *ngIf="isMilestoneOpen('9-months')">Stands, holding on, can get into sitting position, sits without support.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('12-months')">
+            <ion-icon name="star" slot="start" color="warning"></ion-icon>
+            <ion-label>
+              <h2>12 Months</h2>
+              <p *ngIf="isMilestoneOpen('12-months')">Pulls up to stand, walks holding on to furniture, can take a few steps without holding on.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <ion-item button (click)="toggleMilestones('15-months')">
+            <ion-icon name="rocket" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h2>15 Months</h2>
+              <p *ngIf="isMilestoneOpen('15-months')">Walks alone, may walk up steps and run.</p>
+            </ion-label>
+          </ion-item>
+        </ion-slide>
+        <!-- Add more slides as needed -->
+      </ion-slides>      
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Analytics Feature -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Analytics & Insights</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-icon name="analytics-outline" color="primary" style="font-size: 64px; display: block; margin: 0 auto; animation: bounce 1s infinite;"></ion-icon>
+      <p>Track your child’s progress with our analytics feature. Visualize milestones over time and compare against CDC guidelines to ensure your child is on the right track.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Visual Representation -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Milestones Progression</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="assets/images/milestones-chart.png" alt="Milestones Progression" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" />
+      <p>A visual guide to developmental milestones over the first few years of life.</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
