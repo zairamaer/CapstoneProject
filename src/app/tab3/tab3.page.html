@@ -1,17 +1,70 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-select class="option" (ionChange)="openChildModal($event)" placeholder="Select Child">
+        <ion-select-option *ngFor="let child of children" [value]="child.id">
+          {{ child.name }}
+        </ion-select-option>
+      </ion-select>
+      <!-- New button added here -->
+      <ion-button class="add" (click)="onNewButtonClick()" fill="clear">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="info">
+      <div class="name">
+        <p>{{ selectedChildName || 'Name' }}</p>
+      </div>
+      <div class="age">
+        <p>{{ selectedChildAge || 'Age' }}</p>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item class="age-dropdown">
+      <ion-select [(ngModel)]="selectedAge" (ionChange)="filterMilestonesByAge()" interface="action-sheet" placeholder="Age">
+        <ion-select-option value="2months">0 - 2 months</ion-select-option>
+        <ion-select-option value="4months">2 - 4 months</ion-select-option>
+        <ion-select-option value="6months">6 - 9 months</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div class="page-header">
+    <h1>Achieved Milestones</h1>
+    <div class="milestone-summary">
+      <span>{{ totalAchieved }}/{{ totalMilestones }}</span>
+    </div>
+  </div>
+
+  <div class="milestone-container">
+    <div class="milestone-category" *ngFor="let category of filteredCategories; let catIndex = index">
+      <div class="milestone-header">
+        <h2>{{ category.name }}</h2>
+        <span>{{ category.achieved }}/{{ category.total }}</span>
+      </div>
+      
+      <ion-card *ngFor="let milestone of category.milestones; let milestoneIndex = index">
+        <ion-card-content>
+          <p>{{ milestone.description }}</p>
+          <ion-segment [(ngModel)]="milestone.status" (ionChange)="updateMilestoneStatus(catIndex, milestoneIndex, $event.detail.value)">
+            <ion-segment-button value="not-yet">
+              <ion-label>Not yet</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="sometimes">
+              <ion-label>Sometimes</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="frequently">
+              <ion-label>Frequently</ion-label>
+            </ion-segment-button>
+          </ion-segment>                 
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

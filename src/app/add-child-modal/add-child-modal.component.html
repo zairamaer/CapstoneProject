@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Child</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Child Name</ion-label>
+    <ion-input [(ngModel)]="childName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Child Age</ion-label>
+    <ion-input [(ngModel)]="childAge"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="addChild()">Add Child</ion-button>
+</ion-content>

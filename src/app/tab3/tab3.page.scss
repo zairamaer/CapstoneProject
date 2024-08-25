@@ -1,0 +1,162 @@
+/* Toolbar */
+
+ion-toolbar {
+    --background: #2c3e50; /* Replace with your desired color */
+  }
+
+.name p{
+    color: white;
+    margin-left: 40%;
+}
+
+.age p{
+    color: white;
+    margin-left: 40.5%;
+}
+
+.option{
+    color: white;
+    margin-left: 50px;
+}
+
+.add{
+    color: white;
+}
+
+/* Base Styles */
+.age-dropdown {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.page-header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.milestone-summary {
+    font-size: 1em;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+.milestone-container {
+    padding: 20px;
+}
+
+.milestone-category {
+    margin-bottom: 20px;
+}
+
+.milestone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e8f3f4;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.milestone-header h2 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.milestone-header span {
+    font-size: 1em;
+    color: #7f8c8d;
+}
+
+ion-card {
+    background-color: #e8f3f4;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+ion-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ion-segment {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+ion-segment-button {
+    flex: 1;
+    color: #3498db;
+}
+
+ion-segment-button ion-label {
+    font-weight: bold;
+    font-size: 1em;
+    color: #3498bd;
+}
+
+ion-label {
+    text-align: center;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .page-header {
+        font-size: 1.4em;
+    }
+
+    .milestone-header {
+        font-size: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .milestone-header span {
+        font-size: 0.9em;
+    }
+
+    ion-card-content {
+        padding: 10px;
+    }
+
+    ion-segment-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        font-size: 1.2em;
+    }
+
+    .milestone-header {
+        font-size: 0.9em;
+    }
+
+    .milestone-header h2 {
+        font-size: 1em;
+    }
+
+    .milestone-summary {
+        font-size: 0.9em;
+    }
+
+    ion-card-content {
+        padding: 8px;
+    }
+
+    ion-segment-button {
+        font-size: 0.8em;
+    }
+}

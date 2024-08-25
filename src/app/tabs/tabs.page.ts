@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { addIcons } from 'ionicons';
+import { playCircle, radio, search, home, basketball, trophy, chatbox} from 'ionicons/icons'
+
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -7,6 +10,10 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor() {
+
+    addIcons({ playCircle, radio, search, home, basketball, trophy, chatbox});
+
+  }
 
 }
