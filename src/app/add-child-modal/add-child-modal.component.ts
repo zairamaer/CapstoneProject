@@ -9,6 +9,7 @@ import { ModalController } from '@ionic/angular';
 export class AddChildModalComponent {
   childName: string = '';
   childAge: string = '';
+  childGender: string = '';
 
   constructor(private modalController: ModalController) {}
 
@@ -20,7 +21,8 @@ export class AddChildModalComponent {
     if (this.childName && this.childAge) {
       this.modalController.dismiss({
         name: this.childName,
-        age: this.childAge
+        age: this.childAge,
+        gender: this.childGender
       });
     } else {
       // Handle validation error

@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inquiry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inquiry</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ask about Child Development</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea placeholder="Type your question here..." [(ngModel)]="userQuery"></ion-textarea>
+      <ion-button expand="block" (click)="submitQuery()">Submit</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="aiResponse">
+    <ion-card-header>
+      <ion-card-title>AI Response</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ aiResponse }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

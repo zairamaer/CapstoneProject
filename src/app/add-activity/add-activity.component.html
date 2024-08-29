@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="ion-padding">
   <form (ngSubmit)="saveActivity()">
     <!-- Routine Title Input -->
     <ion-item>
@@ -21,7 +21,7 @@
     </ion-item>
 
     <!-- Date and Time Picker -->
-    <ion-item>
+    <ion-item class="datetime-item">
       <ion-label position="floating">Date and Time</ion-label>
       <ion-datetime
         [(ngModel)]="activityDateTime"

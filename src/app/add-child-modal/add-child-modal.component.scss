@@ -1,0 +1,38 @@
+.custom-card {
+    --background: #f9f9f9; /* Light background for card */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .custom-item {
+    --background: #ffffff; 
+    --border-radius: 8px; 
+    margin-bottom: 15px; 
+  }
+  
+  .custom-button {
+    --background: #2c3e50; 
+    --border-radius: 8px;
+    font-weight: bold;
+  }
+  
+  ion-label {
+    font-weight: 600;
+    color: #333333; 
+  }
+  
+  ion-select, ion-input {
+    --padding-start: 10px; 
+  }
+  
+  ion-card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333333;
+    text-align: center; 
+  }
+  
+  ion-content {
+    --background: #f2f2f2; 
+  }
+  

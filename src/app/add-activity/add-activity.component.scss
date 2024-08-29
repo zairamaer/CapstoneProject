@@ -1,0 +1,38 @@
+.datetime-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --background: #f4f4f4;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align children */
+  }
+  
+  .datetime-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    width: 100%; /* Full width to ensure centering works */
+  }
+  
+  ion-datetime {
+    width: 100%; /* Make datetime full width */
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-label {
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-content {
+    --background: #f2f2f2; /* Light gray background */
+  }
+  
