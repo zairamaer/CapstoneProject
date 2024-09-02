@@ -10,6 +10,7 @@ export class AddChildModalComponent {
   childName: string = '';
   childAge: string = '';
   childGender: string = '';
+  ageUnit: string = ''; // New property for age unit
 
   constructor(private modalController: ModalController) {}
 
@@ -18,15 +19,15 @@ export class AddChildModalComponent {
   }
 
   addChild() {
-    if (this.childName && this.childAge) {
+    if (this.childName && this.childAge && this.ageUnit) {
       this.modalController.dismiss({
         name: this.childName,
-        age: this.childAge,
+        age: `${this.childAge} ${this.ageUnit}`, // Include the age unit
         gender: this.childGender
       });
     } else {
       // Handle validation error
-      console.log('Name and age are required');
+      console.log('Name, age, and age unit are required');
     }
   }
 }

@@ -1,63 +1,80 @@
+/* Header */
+ion-header {
+    transition: opacity 0.5s ease-in-out;
+    background: #a6c5f7; 
+    padding: 20px;
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px;
+}
+
 /* Toolbar */
-
 ion-toolbar {
-    --background: #2c3e50; /* Replace with your desired color */
-  }
-
-.name p{
-    color: white;
-    margin-left: 40%;
+    --background: none; 
+    color: #fff; 
 }
 
-.age p{
-    color: white;
-    margin-left: 40.5%;
-}
-
-.option{
+/* Select Child Option */
+.option {
     color: white;
     margin-left: 50px;
 }
 
-.add{
+/* Add Button */
+.add {
     color: white;
 }
 
-/* Base Styles */
+/* Name and Age Display */
+.name p, .age p {
+    color: white;
+    text-align: center; 
+    font-size: 1.2em; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+/* Age Dropdown */
 .age-dropdown {
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 10px;
     padding: 10px;
+    background-color: #f1f8ff; 
 }
 
+/* Page Header */
 .page-header {
     text-align: center;
     margin-top: 20px;
     font-size: 1.6em;
     font-weight: bold;
     color: #2c3e50;
+    font-family: 'Segoe UI', sans-serif; 
 }
 
+/* Milestone Summary */
 .milestone-summary {
     font-size: 1em;
     color: #7f8c8d;
     margin-top: 10px;
+    font-family: 'Segoe UI', sans-serif; 
 }
 
+/* Milestone Container */
 .milestone-container {
     padding: 20px;
 }
 
+/* Milestone Category */
 .milestone-category {
     margin-bottom: 20px;
 }
 
+/* Milestone Header */
 .milestone-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #e8f3f4;
+    background-color: #d6e9f7; 
     padding: 10px;
     border-radius: 8px;
     font-weight: bold;
@@ -67,6 +84,8 @@ ion-toolbar {
 .milestone-header h2 {
     margin: 0;
     color: #2c3e50;
+    font-family: 'Segoe UI', sans-serif; 
+    color: #6f81a5;
 }
 
 .milestone-header span {
@@ -74,10 +93,12 @@ ion-toolbar {
     color: #7f8c8d;
 }
 
+/* Milestone Card */
 ion-card {
-    background-color: #e8f3f4;
+    background-color: #d6e9f7; 
     border-radius: 8px;
     margin-bottom: 10px;
+    border: 1px solid #c0dff6; 
 }
 
 ion-card-content {
@@ -85,8 +106,11 @@ ion-card-content {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-color: #f9fbfd; 
+    border-radius: 8px;
 }
 
+/* Segment Buttons */
 ion-segment {
     background-color: #ffffff;
     border-radius: 20px;

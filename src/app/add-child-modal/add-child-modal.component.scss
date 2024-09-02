@@ -1,38 +1,60 @@
+.modal-toolbar {
+  --background: #a6c5f7; 
+  --color: #ffffff;
+  --border-radius: 0; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-content {
+  height: auto; 
+  max-height: 90vh; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  --background: #f0f4f8; 
+  overflow: hidden;
+}
+
 .custom-card {
-    --background: #f9f9f9; /* Light background for card */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .custom-item {
-    --background: #ffffff; 
-    --border-radius: 8px; 
-    margin-bottom: 15px; 
-  }
-  
-  .custom-button {
-    --background: #2c3e50; 
-    --border-radius: 8px;
-    font-weight: bold;
-  }
-  
-  ion-label {
-    font-weight: 600;
-    color: #333333; 
-  }
-  
-  ion-select, ion-input {
-    --padding-start: 10px; 
-  }
-  
-  ion-card-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333333;
-    text-align: center; 
-  }
-  
-  ion-content {
-    --background: #f2f2f2; 
-  }
-  
+  width: 100%; 
+  max-width: 565px; 
+  --background: #ffffff; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.custom-item {
+  --background: #ffffff; 
+  --border-radius: 8px;
+  margin-bottom: 15px; 
+}
+
+.custom-button {
+  --background: #4a90e2; 
+  --border-radius: 8px; 
+  font-weight: bold; 
+}
+
+ion-label {
+  font-weight: 600; 
+  color: #333333; 
+}
+
+ion-select, ion-input {
+  --padding-start: 10px; 
+}
+
+ion-card-title {
+  font-size: 1.2em; 
+  font-weight: bold; 
+  color: #333333; 
+  text-align: center;
+}
+
+ion-content {
+  --background: #f0f4f8; 
+  padding: 0;
+}

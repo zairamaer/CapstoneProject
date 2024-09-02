@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="modal-toolbar">
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">Close</ion-button>
+      <ion-button (click)="dismissModal()" color="light">Close</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="modal-content">
   <ion-card class="custom-card">
     <ion-card-header>
       <ion-card-title>Add New Child</ion-card-title>
@@ -20,9 +20,12 @@
       <ion-item class="custom-item">
         <ion-label position="floating">Child Age</ion-label>
         <ion-input [(ngModel)]="childAge" type="number"></ion-input>
+        <ion-select [(ngModel)]="ageUnit" placeholder="Select unit">
+          <ion-select-option value="years">Years</ion-select-option>
+          <ion-select-option value="months">Months</ion-select-option>
+        </ion-select>
       </ion-item>
 
-      <!-- Gender dropdown -->
       <ion-item class="custom-item">
         <ion-label position="floating">Gender</ion-label>
         <ion-select [(ngModel)]="childGender">

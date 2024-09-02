@@ -1,12 +1,22 @@
+/* Header */
+ion-header {
+  transition: opacity 0.5s ease-in-out;
+  background: #a6c5f7; 
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 /* Toolbar */
-
 ion-toolbar {
-    --background: #2c3e50; /* Replace with your desired color */
-    border-bottom: 1px solid #ddd; /* Subtle border for separation */
-  }
+  --background: none; 
+  color: #fff; 
+}
 
-ion-title {
-    color: white;
+/* Custom Title */
+.custom-title {
+  font-size: 30px;
+  font-family: 'Segoe UI', sans-serif; 
 }
 
 .login-container {
@@ -30,8 +40,8 @@ ion-title {
 
   ion-label {
     color: #333;
-    margin-bottom: 8px; /* Add margin between the label and input */
-    font-size: 16px; /* Adjust the font size if needed */
+    margin-bottom: 8px; 
+    font-size: 16px;
   }
 
   ion-input {
@@ -40,11 +50,11 @@ ion-title {
     border-radius: 5px;
     background-color: #f9f9f9;
     border: 2px solid #d0d0d0;
-    margin-top: 4px; /* Add additional margin to input if needed */
+    margin-top: 4px; 
   }
 
   ion-button.login-button {
-    --background: #6c757d; /* Gray background color */
-    --color: #ffffff; /* White text color */
-    --border-radius: 8px; /* Rounded corners */
+    --background: #6c757d; 
+    --color: #ffffff; 
+    --border-radius: 8px; 
   }

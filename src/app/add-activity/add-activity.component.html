@@ -1,41 +1,58 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="modal-toolbar">
     <ion-title>Add Activity</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="close()">Close</ion-button>
+      <ion-button (click)="close()" color="light">Close</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form (ngSubmit)="saveActivity()">
-    <!-- Routine Title Input -->
-    <ion-item>
-      <ion-label position="floating">Routine Title</ion-label>
-      <ion-input 
-        [(ngModel)]="activityTitle" 
-        name="title" 
-        placeholder="Enter title" 
-        required
-      ></ion-input>
-    </ion-item>
+<ion-content class="modal-content">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Add New Activity</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Routine Title Input -->
+      <ion-item class="custom-item">
+        <ion-label position="floating">Routine Title</ion-label>
+        <ion-input 
+          [(ngModel)]="activityTitle" 
+          name="title" 
+          placeholder="Enter title" 
+          required
+        ></ion-input>
+      </ion-item>
 
-    <!-- Date and Time Picker -->
-    <ion-item class="datetime-item">
-      <ion-label position="floating">Date and Time</ion-label>
-      <ion-datetime
-        [(ngModel)]="activityDateTime"
-        name="dateTime"
-        displayFormat="MMMM DD, YYYY HH:mm"
-        pickerFormat="YYYY-MM-DDTHH:mm"
-        (ionChange)="onDateTimeChange($event)"
-        required
-      ></ion-datetime>
-    </ion-item>
+      <!-- Date and Time Picker -->
+      <ion-item class="datetime-item">
+        <ion-label position="floating">Date and Time</ion-label>
+        <ion-datetime
+          [(ngModel)]="activityDateTime"
+          name="dateTime"
+          displayFormat="MMMM DD, YYYY HH:mm"
+          pickerFormat="YYYY-MM-DDTHH:mm"
+          (ionChange)="onDateTimeChange($event)"
+          required
+        ></ion-datetime>
+      </ion-item>
 
-    <!-- Save Button -->
-    <ion-button expand="full" color="primary" type="submit">
-      Save Activity
-    </ion-button>
-  </form>
+      <!-- Category Selection -->
+      <ion-item class="custom-item">
+        <ion-label position="floating">Time of Day</ion-label>
+        <ion-select [(ngModel)]="activityCategory" name="category" required>
+          <ion-select-option value="Morning">Morning</ion-select-option>
+          <ion-select-option value="Mid-Morning">Mid-Morning</ion-select-option>
+          <ion-select-option value="Midday">Midday</ion-select-option>
+          <ion-select-option value="Afternoon">Afternoon</ion-select-option>
+          <ion-select-option value="Evening">Evening</ion-select-option>
+        </ion-select>
+      </ion-item>    
+
+      <!-- Save Button -->
+      <ion-button expand="full" class="custom-button" (click)="saveActivity()">
+        Save Activity
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

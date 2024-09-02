@@ -1,32 +1,96 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Inquiry</ion-title>
+    <ion-title class="custom-title">Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Inquiry</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-card>
+<ion-content [fullscreen]="true">
+  <!-- Overview Summary -->
+  <ion-card class="overview-summary-card">
     <ion-card-header>
-      <ion-card-title>Ask about Child Development</ion-card-title>
+      <ion-card-title>Overview Summary</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-textarea placeholder="Type your question here..." [(ngModel)]="userQuery"></ion-textarea>
-      <ion-button expand="block" (click)="submitQuery()">Submit</ion-button>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <div class="summary-stat">
+            <ion-icon name="checkmark-circle" color="success" size="large"></ion-icon>
+            <h2>{{ totalAchieved }}</h2>
+            <p>Total Achieved Milestones</p>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <div class="summary-stat">
+            <ion-icon name="list" color="primary" size="large"></ion-icon>
+            <h2>{{ totalMilestones }}</h2>
+            <p>Total Milestones</p>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="4">
+          <div class="summary-stat">
+            <ion-icon name="trending-up" color="tertiary" size="large"></ion-icon>
+            <h2>{{ dailyActiveUsers }}</h2>
+            <p>Daily Active Users</p>
+          </div>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="aiResponse">
+  <!-- User Interaction by Milestone Category -->
+  <ion-card class="chart-card">
     <ion-card-header>
-      <ion-card-title>AI Response</ion-card-title>
+      <ion-card-title>Milestone Category Interaction</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>{{ aiResponse }}</p>
+      <canvas id="categoryInteractionChart" class="responsive-chart"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Trends in Milestone Tracking -->
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-title>Trends in Milestone Tracking</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="trendsMilestoneTrackingChart" class="responsive-chart"></canvas>
+      <div class="trends-description">
+        <p><strong>Milestone Categories Over Time:</strong> This trend highlights how different milestone categories are tracked and completed over time.</p>
+        <p><strong>Milestone Completion Rates:</strong> This trend compares the completion rates of milestones for different periods.</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Top Logged Milestones -->
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-title>Top Logged Milestones</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="topMilestonesChart" class="responsive-chart"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- User Demographics -->
+  <ion-card class="demographics-card">
+    <ion-card-header>
+      <ion-card-title>User Demographics</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <div class="demographic-stat">
+            <h2>{{ userAgeGroups }}</h2>
+            <p>Age Groups</p>
+          </div>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <div class="demographic-stat">
+            <h2>{{ userRegions }}</h2>
+            <p>Regions</p>
+          </div>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>

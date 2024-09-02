@@ -1,68 +1,186 @@
-ion-toolbar {
-  --background: #2c3e50; /* Dark background color */
-  --color: white;        /* White text color */
+/* Header */
+ion-header {
+  transition: opacity 0.5s ease-in-out;
+  background: #a6c5f7; 
+  padding: 20px;
+  border-bottom-left-radius: 15px; 
+  border-bottom-right-radius: 15px;
 }
 
-.activity-card {
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px;
-    position: relative;
-  }
-  
-  ion-item {
-    --inner-padding-end: 0;
-  }
-  
-  .date-label, .time-label, .activity-label {
-    font-weight: bold;
-    color: #4A4A4A;
-    font-size: 14px;
-    margin-top: 25px;
-  }
-  
-  .date-text, .time-text, .activity-text {
-    color: #333333;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-  
-  .date-text {
-    color: black; /* Customize date color */
-  }
-  
-  .time-text {
-    color: black; /* Customize time color */
-  }
-  
- 
-  ion-button {
-    --border-radius: 8px;
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    font-weight: bold;
-  }
-  
-  ion-content {
-    --background: #f3f4f6; /* Light background color */
-  }
-  
-  .delete-button {
-    position: absolute;
-    right: 3px; /* Adjust right spacing */
-    z-index: 10;
-    --padding-start: 0;
-    --padding-end: 0;
-    --padding-top: 0;
-    --padding-bottom: 0;
-    height: 40px; /* Adjust the size of the button */
-    width: 40px;  /* Adjust the size of the button */
-    background: transparent; /* Ensure the background is transparent */
-    border: none; /* Remove border if necessary */
-    --box-shadow: none; /* Remove box shadow if necessary */
-  }
+/* Toolbar */
+ion-toolbar {
+  --background: none; 
+  color: #fff; 
+}
 
-  ion-select{
-    margin-right: 40px;
-  }
-   
-  
+/* Title */
+.custom-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffffff; 
+  text-align: left; 
+  font-family: 'Segoe UI', sans-serif; 
+}
+
+/* Card Style */
+.activity-card {
+  background: #f9fbfd; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  position: relative;
+  padding: 15px;
+}
+
+/* Card Content */
+ion-card-content {
+  background: #ffffff; 
+  border-radius: 8px; 
+  padding: 15px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* Labels */
+.date-label, .time-label, .activity-label, .category-label {
+  font-weight: bold;
+  color: #4a90e2; 
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Text Content */
+.date-text, .time-text, .activity-text, .category-text {
+  color: #333333; 
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Delete Button */
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  height: 36px; 
+  width: 36px; 
+  background: transparent; 
+  border: none; 
+  --box-shadow: none; 
+  z-index: 10; 
+}
+
+.delete-button ion-icon {
+  color: #e57373; 
+  font-size: 24px; 
+}
+
+/* Category Filter Styles */
+.category-filter-item {
+  border: none; 
+  border-radius: 8px; 
+  margin: 10px; 
+  padding: 10px; 
+  background-color: #f1f8ff; 
+  box-shadow: none; 
+}
+
+/* Filter Label */
+.category-filter-label {
+  color: #4a90e2; 
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Category Select Styles */
+.category-select {
+  background: #ffffff; 
+  border-radius: 8px; 
+  border: none; 
+  padding: 0; 
+  --padding-start: 10px;
+  --padding-end: 10px;
+  box-shadow: none; 
+}
+
+.category-select ion-select {
+  border: none; 
+  outline: none; 
+  --border-radius: 8px;
+  --background: transparent; 
+}
+
+.category-select ion-select .select-placeholder,
+.category-select ion-select .select-text {
+  color: #333333; 
+}
+
+.category-select ion-select .native-select {
+  border: none; 
+  outline: none; 
+}
+
+.category-select ion-select ion-select-option {
+  background-color: #f7fafc; 
+  color: #333333;
+  font-size: 16px;
+  --border-radius: 8px; 
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="all"] {
+  background-color: #a6c5f7; 
+  color: white;
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="Morning"] {
+  background-color: #ffcccb; 
+  color: white;
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="Mid-Morning"] {
+  background-color: #ffd700; 
+  color: white;
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="Midday"] {
+  background-color: #98fb98; 
+  color: white;
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="Afternoon"] {
+  background-color: #87ceeb; 
+  color: white;
+}
+
+.category-select ion-select ion-select-option[ng-reflect-value="Evening"] {
+  background-color: #f7fafc; 
+  color: #333333; 
+}
+
+ion-content {
+  --background: #e1f0ff; 
+}
+
+ion-button {
+  --border-radius: 15px; 
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+ion-select {
+  margin-right: 20px; 
+}
+
+/* Add Activity Button */
+ion-fab-button {
+  --background: #ff7f50; 
+  --border-radius: 50%; 
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ion-icon {
+  font-size: 24px; 
+}

@@ -1,124 +1,250 @@
 /* Header */
 ion-header {
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  /* Toolbar */
-  ion-toolbar {
-    --background: #2c3e50; /* Replace with your desired color */
-    color: white;
-  }
-  
-  .custom-toolbar {
-    display: flex;
-    justify-content: center; // Center the content horizontally
-    align-items: center;
-    padding: 0 16px; // Adjust padding as needed
-  }
-  
-  .header-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between; // Place title and button on opposite ends
-  }
-  
+  transition: opacity 0.5s ease-in-out;
+  background: #a6c5f7; 
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Toolbar */
+ion-toolbar {
+  --background: none; 
+  color: #fff; 
+}
+
+/* Header Content */
+.header-content {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
+}
+
+/* Title and Icon Container */
+.title-icon-container {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 100%; 
+}
+
+/* Title */
+.custom-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff; 
+  text-align: left; 
+  font-family: 'Segoe UI', sans-serif; 
+}
+
+/* Man Icon */
+.man-icon {
+  font-size: 28px; 
+  color: #ffffff; 
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+/* Settings Icon */
+.settings-icon {
+  font-size: 28px; 
+  color: #ffffff; 
+}
+
+/* Button */
+.custom-button {
+  --background: #f4f5f8; 
+  --color: #a6c5f7; 
+  font-weight: bold;
+}
+
+.custom-button:hover {
+  transform: scale(1.1); 
+}
+
+.button-icon {
+  font-size: 22px;
+}
+
+/* Card */
+ion-card {
+  margin: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #ffffff; 
+}
+
+ion-card-header {
+  background-color: #f0f8ff; 
+  padding: 18px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+ion-content {
+  --background: #e1f0ff; 
+}
+
+ion-card-title {
+  font-size: 22px;
+  color: #6f81a5; 
+  font-family: 'Segoe UI', sans-serif; 
+}
+
+ion-card-content {
+  padding: 18px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Icon Bounce Animation */
+.icon-bounce {
+  font-size: 60px;
+  display: block;
+  margin: 0 auto;
+  animation: bounce 1.5s infinite;
+}
+
+.icon-info {
+  font-size: 50px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Custom Link Styles */
+.custom-link {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px 0;
+  background-color: #e3f2fd; 
+  color: #007aff; 
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.custom-link:hover {
+  background-color: #007aff; 
+  color: #ffffff; 
+  box-shadow: 0 3px 10px rgba(0, 122, 255, 0.2); 
+}
+
+/* Slides */
+.custom-slides {
+  --bullet-background: #a6c5f7;
+  --bullet-background-active: #6f81a5;
+}
+
+/* Responsive Design */
+.responsive-image {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
   .custom-title {
-    margin: 0;
-    text-align: left;
-    font-size: 20px; // Adjust font size as needed
-  }
-  
-  .custom-button {
-    display: flex;
-    align-items: center;
-    margin-left: 16px; // Adjust spacing between title and button
-    --background: #ffffff; // Button background color
-    --color: #2c3e50; // Button text color (matching the toolbar background)
-    --box-shadow: none; // Remove box shadow
-    --border: none; // Remove border
-  }
-  
-  .button-icon {
     font-size: 20px;
   }
-  
-  
 
-  /* Card */
-  ion-card {
-    margin: 16px;
-  }
-  
-  ion-card-header {
-    background-color: #f4f4f4;
-  }
-  
-  ion-card-title {
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* Card Hover Effect */
-  ion-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.02);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  /* Item */
-  ion-item {
-    margin: 8px 0;
-    align-items: center;
-  }
-  
-  /* Icon */
-  ion-icon {
-    font-size: 24px;
-    margin-right: 8px;
-    animation: bounce 1s infinite;
-  }
-  
-  
-  /* Image */
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 16px;
-  }
-  
-  /* Paragraph */
-  p {
-    color: #666;
+  .custom-button {
     font-size: 14px;
   }
-  
-  /* Button */
-  ion-button {
-    position: relative;
+
+  ion-card-content {
+    font-size: 16px;
   }
 
-  ion-button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 0;
+  .side-by-side-container {
+    flex-direction: column;
   }
+}
 
-  ion-button:hover::after {
-    transform: translate(-50%, -50%) scale(1);
+/* Container for side-by-side layout */
+.side-by-side-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  margin: 15px 0;
+}
+
+/* Individual side-by-side card */
+.side-card {
+  flex: 1;
+  min-width: 300px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+/* Ensure slides have proper styling */
+ion-slides {
+  --bullet-background: #a6c5f7;
+  --bullet-background-active: #6f81a5;
+}
+
+/* Adjust video container for responsive design */
+.video-container {
+  text-align: center;
+}
+
+iframe {
+  border: none;
+  border-radius: 8px;
+}
+
+.video-container p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.side-by-side-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.side-card {
+  flex: 1;
+  margin: 0 8px;
+}
+
+.center-container {
+  max-width: 2000px; 
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px; 
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+  height: 100%;
+  padding: 10px; 
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .center-container {
+    max-width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px; 
   }
+}
 
-  ion-button .button-inner {
-    position: relative;
-    z-index: 1;
-
+@media screen and (max-width: 480px) {
+  .center-container {
+    max-width: 100%; 
+    padding: 5px; 
   }
+}
+

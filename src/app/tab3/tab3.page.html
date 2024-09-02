@@ -6,7 +6,6 @@
           {{ child.name }}
         </ion-select-option>
       </ion-select>
-      <!-- New button added here -->
       <ion-button class="add" (click)="onNewButtonClick()" fill="clear">
         <ion-icon name="add-outline"></ion-icon>
       </ion-button>
@@ -22,15 +21,13 @@
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item class="age-dropdown">
-      <ion-select [(ngModel)]="selectedAge" (ionChange)="filterMilestonesByAge()" interface="action-sheet" placeholder="Age">
-        <ion-select-option value="2months">0 - 2 months</ion-select-option>
-        <ion-select-option value="4months">2 - 4 months</ion-select-option>
-        <ion-select-option value="6months">6 - 9 months</ion-select-option>
+    <ion-item class="age-dropdown" *ngIf="selectedChildId">
+      <ion-select [(ngModel)]="selectedAge" (ionChange)="filterMilestonesByAge()" placeholder="Select Age">
+        <ion-select-option *ngFor="let age of ageOptions" [value]="age.value">
+          {{ age.label }}
+        </ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
@@ -54,15 +51,15 @@
           <p>{{ milestone.description }}</p>
           <ion-segment [(ngModel)]="milestone.status" (ionChange)="updateMilestoneStatus(catIndex, milestoneIndex, $event.detail.value)">
             <ion-segment-button value="not-yet">
-              <ion-label>Not yet</ion-label>
+              Not Yet
             </ion-segment-button>
             <ion-segment-button value="sometimes">
-              <ion-label>Sometimes</ion-label>
+              Sometimes
             </ion-segment-button>
             <ion-segment-button value="frequently">
-              <ion-label>Frequently</ion-label>
+              Frequently
             </ion-segment-button>
-          </ion-segment>                 
+          </ion-segment>                       
         </ion-card-content>
       </ion-card>
     </div>

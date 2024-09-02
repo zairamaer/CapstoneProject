@@ -7,11 +7,11 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./add-activity.component.scss'],
 })
 export class AddActivityComponent implements OnInit {
-
   activityTitle: string = '';
-  activityDateTime: string = ''; // This will store date and time in ISO format
+  activityDateTime: string = '';
+  activityCategory: string = '';
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {
     this.setDefaultDateTime();
@@ -19,7 +19,7 @@ export class AddActivityComponent implements OnInit {
 
   setDefaultDateTime() {
     const now = new Date();
-    this.activityDateTime = now.toISOString(); // Default to current date and time
+    this.activityDateTime = now.toISOString();
   }
 
   close() {
@@ -27,18 +27,25 @@ export class AddActivityComponent implements OnInit {
   }
 
   async saveActivity() {
+    console.log('Save Activity Called'); // Debugging line
+    if (!this.activityTitle || !this.activityDateTime || !this.activityCategory) {
+      console.error('Validation error: missing data');
+      return;
+    }
+  
     const [date, time] = this.activityDateTime.split('T');
     const activityData = {
       title: this.activityTitle,
-      date: date, // YYYY-MM-DD format
-      time: time.split('.')[0] // HH:mm:ss format without milliseconds
+      date: date,
+      time: time.split('.')[0],
+      category: this.activityCategory,
     };
-
-    // Pass the data back to the modal
+  
     await this.modalController.dismiss(activityData);
   }
+  
 
   onDateTimeChange(event: any) {
-    this.activityDateTime = event.detail.value as string; // This will be in ISO 8601 format: YYYY-MM-DDTHH:mm:ss.sssZ
+    this.activityDateTime = event.detail.value as string;
   }
 }
