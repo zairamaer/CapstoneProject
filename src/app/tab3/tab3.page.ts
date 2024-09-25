@@ -543,28 +543,6 @@ export class Tab3Page {
     }
   }
 
-  async onNewButtonClick() {
-    const modal = await this.modalController.create({
-      component: AddChildModalComponent,
-      componentProps: {}
-    });
-
-    modal.onDidDismiss().then((result) => {
-      if (result.data) {
-        const newChild: Child = {
-          id: this.children.length + 1,
-          name: result.data.name,
-          age: result.data.age
-        };
-        this.children.push(newChild);
-        this.categories[newChild.id] = JSON.parse(JSON.stringify(this.staticMilestones));
-        this.updateAgeOptions();
-      }
-    });
-
-    return await modal.present();
-  }
-
   resetSelection() {
     this.selectedChildName = '';
     this.selectedChildAge = '';

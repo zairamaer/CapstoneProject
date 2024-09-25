@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AddChildModalComponent } from './add-child-modal/add-child-modal.component'; 
 import { AddActivityComponent } from './add-activity/add-activity.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component'; 
+import { EditChildModalComponent } from './edit-child-modal/edit-child-modal.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     AddChildModalComponent, 
     AddActivityComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent,
+    EditChildModalComponent
   ],
   imports: [
     BrowserModule,

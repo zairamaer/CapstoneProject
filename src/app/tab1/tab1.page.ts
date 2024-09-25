@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';  // Import NavController
 
 @Component({
   selector: 'app-tab1',
@@ -6,19 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor() {}
-
-  // Define the type of openMilestones object
   openMilestones: { [key: string]: boolean } = {};
 
-  // Method to toggle the visibility of milestones
-  toggleMilestones(id: string) {
-    this.openMilestones[id] = !this.openMilestones[id];
+  constructor(private navCtrl: NavController) {}  // Inject NavController
+
+  toggleMilestones(milestoneId: string) {
+    this.openMilestones[milestoneId] = !this.openMilestones[milestoneId];
   }
 
-  // Method to check if a milestone is open
-  isMilestoneOpen(id: string): boolean {
-    return this.openMilestones[id] || false;
+  isMilestoneOpen(milestoneId: string): boolean {
+    return this.openMilestones[milestoneId] || false;
+  }
+
+  // Add the openSettings method to navigate to the settings page
+  openSettings() {
+    this.navCtrl.navigateForward('/settings');
   }
 }

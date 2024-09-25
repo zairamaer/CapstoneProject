@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="custom-title">Manage Children</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="family-content">
+  <!-- List of Children -->
+  <ion-card class="children-card">
+    <ion-card-header>
+      <ion-card-title class="title">Children List</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let child of children">
+          <ion-avatar slot="start">
+            <ion-icon name="happy-outline" class="child-icon"></ion-icon>
+          </ion-avatar>
+          <ion-label class="child-details">
+            <h2>{{ child.name }} ({{ child.age }})</h2>
+            <p>{{ child.gender }}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="editChild(child)">Edit</ion-button>
+            <ion-button color="danger">Remove</ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Floating Add Button in the bottom-right corner -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="add-btn" (click)="onNewButtonClick()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

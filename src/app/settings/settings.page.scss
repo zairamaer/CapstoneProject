@@ -1,0 +1,85 @@
+/* Header */
+ion-header {
+    transition: opacity 0.5s ease-in-out;
+    background: #a6c5f7; 
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Toolbar */
+  ion-toolbar {
+    --background: none; 
+    color: #fff; 
+  }
+
+  /* Title */
+.custom-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff; 
+    text-align: left; 
+    font-family: 'Segoe UI', sans-serif; 
+  }
+
+/* Settings Content Background */
+.settings-content {
+  background-color: #f0f8ff; /* Light pastel blue */
+  padding: 15px;
+}
+
+/* Card Styles */
+.settings-card {
+  background-color: #ffffff; /* White background for cards */
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  margin-bottom: 20px; /* Space between cards */
+  padding: 15px; /* Padding inside cards */
+  transition: transform 0.2s, box-shadow 0.2s; /* Transition for hover effect */
+}
+
+/* Card Hover Effect */
+.settings-card:hover {
+  transform: scale(1.02); /* Slightly grow on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Profile Label */
+.profile-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4a90e2; /* Family-friendly soft blue */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Chevron Icon */
+.chevron-icon {
+  color: #a6c5f7; /* Keep consistent with header color */
+  font-size: 18px;
+}
+
+/* Title Styles */
+.custom-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff; 
+  text-align: left; 
+  font-family: 'Segoe UI', sans-serif; 
+}
+
+/* Logout Button */
+ion-button {
+  margin-top: 20px; /* Space above logout button */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .custom-title {
+    font-size: 24px;
+  }
+
+  .profile-label {
+    font-size: 16px;
+  }
+}

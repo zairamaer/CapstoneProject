@@ -1,33 +1,60 @@
 /* Header */
 ion-header {
   transition: opacity 0.5s ease-in-out;
-  background: #a6c5f7; 
-  padding: 20px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background: #a6c5f7;
+  padding: 10px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: relative;
+  height: 35vh; /* Same as login header height */
 }
 
 /* Toolbar */
 ion-toolbar {
-  --background: none; 
-  color: #fff; 
+  --background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2vw; /* Same as login toolbar padding */
+}
+
+/* Toolbar Content */
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo Styling */
+.toolbar-logo {
+  margin-top: 10px;
+  height: calc(0.6 * 35vh); /* Same as login logo height */
+  max-width: 90%; /* Same as login logo max-width */
+  width: auto;
+  background-color: white;
+  border-radius: 50%; /* Updated to be circular */
 }
 
 /* Custom Title */
 .custom-title {
-  font-size: 30px;
-  font-family: 'Segoe UI', sans-serif; 
+  font-size: 2rem; /* Same as login font size */
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
 }
 
+/* Sign-Up Container */
 .signup-container {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 90vw; /* Same as login container width */
+  margin: 20px auto;
   padding: 20px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Sign-Up Input Fields */
 ion-item {
   margin-bottom: 16px;
   --border-width: 0px;
@@ -39,20 +66,119 @@ ion-item {
 }
 
 ion-label {
-    color: #333;
-    margin-bottom: 8px; 
-    font-size: 16px; 
-  }
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 1rem; /* Same as login input font size */
+}
 
-  ion-input {
-    --padding-start: 10px;
-    --padding-end: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    border: 2px solid #d0d0d0;
-    margin-top: 4px; 
-  }
+ion-input {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  border: 2px solid #d0d0d0;
+  margin-top: 4px;
+}
 
+/* Sign-Up Button */
 ion-button {
   --border-radius: 8px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Mobile devices */
+@media (max-width: 479px) {
+  /* Adjustments for very small devices */
+  .signup-container {
+    max-width: 90vw; /* Full-width container on mobile */
+    padding: 15px; /* Reduced padding */
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Slightly smaller logo for mobile */
+  }
+
+  .custom-title {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Adjustments for small tablets and larger phones */
+  .signup-container {
+    max-width: 85vw;
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Default size relative to header height */
+  }
+
+  .custom-title {
+    font-size: 1.75rem; /* Slightly smaller font size for tablets */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Adjustments for tablets */
+  .signup-container {
+    max-width: 60vw; /* Adjust width for tablets */
+    padding: 30px; /* Increased padding for tablets */
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Larger size for tablets and up */
+  }
+
+  .custom-title {
+    font-size: 2rem; /* Default font size for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Adjustments for desktops */
+  .signup-container {
+    max-width: 50vw; /* Adjust width for desktops */
+    padding: 40px; /* Increased padding for desktops */
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for desktops */
+  }
+
+  .custom-title {
+    font-size: 2rem; /* Maintain font size for desktops */
+  }
+}
+
+@media (min-width: 1360px) {
+  /* Specific adjustments for larger desktops */
+  .signup-container {
+    max-width: 40vw; /* Adjust width for larger desktops */
+    padding: 50px; /* Increased padding for larger desktops */
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for larger desktops */
+  }
+
+  .custom-title {
+    font-size: 2rem; /* Maintain font size for larger desktops */
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Adjustments for full HD or larger monitors */
+  .signup-container {
+    max-width: 30vw; /* Adjust width for full HD monitors */
+    padding: 60px; /* Increased padding for full HD monitors */
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for full HD monitors */
+  }
+
+  .custom-title {
+    font-size: 2rem; /* Maintain font size for full HD monitors */
+  }
 }

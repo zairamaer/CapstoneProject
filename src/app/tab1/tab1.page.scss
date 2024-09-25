@@ -38,18 +38,11 @@ ion-toolbar {
   font-family: 'Segoe UI', sans-serif; 
 }
 
-/* Man Icon */
-.man-icon {
-  font-size: 28px; 
-  color: #ffffff; 
-  margin-right: 40px;
-  margin-left: 20px;
-}
-
 /* Settings Icon */
 .settings-icon {
   font-size: 28px; 
   color: #ffffff; 
+  margin-right: 15px;
 }
 
 /* Button */
@@ -220,6 +213,7 @@ iframe {
   margin-left: auto;
   margin-right: auto;
   padding: 20px; 
+  margin-top: 10px;
 }
 
 .centered-content {
@@ -239,6 +233,31 @@ iframe {
     margin-right: auto;
     padding: 10px; 
   }
+  .pair {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container {
+    margin: 0; /* Remove large margins for smaller screens */
+  }
+
+  .logo-image {
+    width: 120px; /* Reduce the logo size */
+  }
+
+  .milestone {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .development {
+    margin: 0; /* Remove large margins for smaller screens */
+  }
+
+  .milestone-image {
+    width: 120px; /* Reduce the logo size */
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -246,5 +265,64 @@ iframe {
     max-width: 100%; 
     padding: 5px; 
   }
+  .logo-image {
+    width: 80px; 
+  }
+  .milestone-image {
+    width: 80px;
+  }
 }
+
+.pair {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  margin-right: 50px;
+  margin-left: 30px;
+}
+
+.logo-image {
+  background-color: white;
+  border-radius: 300px;
+  width: 300px; 
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+}
+
+.milestone-image {
+  background-color: white;
+  border-radius: 300px;
+  width: 400px; 
+  height: auto;
+  transition: width 0.3s ease;
+}
+
+.development {
+  margin-right: 50px;
+  margin-left: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

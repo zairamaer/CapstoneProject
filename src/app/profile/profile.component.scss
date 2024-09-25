@@ -1,0 +1,103 @@
+/* Header */
+ion-header {
+    transition: opacity 0.5s ease-in-out;
+    background: #a6c5f7; /* Light blue for a family-friendly look */
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Toolbar */
+  ion-toolbar {
+    --background: none;
+    color: #fff;
+  }
+  
+  /* Title */
+  .custom-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Family-oriented Content Background */
+  .family-content {
+    background-color: #f0f8ff; /* Light pastel blue */
+    padding: 15px;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  /* Profile Title */
+  .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a6c5f7;
+    text-align: left;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Input Item Styling */
+  .input-item {
+    --background: #f0f8ff;
+    --border-color: #dcdcdc;
+    --border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  /* Input Label */
+  ion-label {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Input Fields */
+  ion-input {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    --padding-start: 10px;
+    color: #333;
+  }
+  
+  /* Save Button */
+  .save-button {
+    --background: #a6c5f7; /* Matching blue */
+    --border-radius: 8px;
+    --padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 600px) {
+    .custom-title {
+      font-size: 24px;
+    }
+  
+    .profile-title {
+      font-size: 20px;
+    }
+  
+    ion-input {
+      font-size: 14px;
+    }
+  
+    ion-label {
+      font-size: 14px;
+    }
+  }
+  

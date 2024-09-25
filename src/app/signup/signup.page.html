@@ -1,15 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="custom-title">Sign Up</ion-title>
+    <div class="toolbar-content">
+      <img src="assets/logo-rmb.png" alt="App Logo" class="toolbar-logo">
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
-  <!-- Logo Section -->
-  <div class="logo-container" style="text-align: center; margin-bottom: 20px;">
-    <img src="assets/logo.png" alt="App Logo" style="max-width: 200px;">
-  </div>
 
   <div class="signup-container">
     <form (submit)="onSignup()">

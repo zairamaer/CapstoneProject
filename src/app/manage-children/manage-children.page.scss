@@ -1,0 +1,128 @@
+/* Header */
+ion-header {
+    transition: opacity 0.5s ease-in-out;
+    background: #a6c5f7; /* Light blue for a family-friendly look */
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  /* Toolbar */
+  ion-toolbar {
+    --background: none;
+    color: #fff;
+  }
+  
+  /* Title */
+  .custom-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Family-oriented Content Background */
+  .family-content {
+    background-color: #f0f8ff; /* Light pastel blue */
+  }
+  
+  /* Children Card */
+  .children-card {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  /* Child Icon */
+  .child-icon {
+    color: #ffd700; /* Golden color to represent kids */
+    font-size: 30px;
+  }
+  
+  /* Child Details */
+  .child-details h2 {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333; /* Slightly darker text for readability */
+  }
+  
+  .child-details p {
+    color: #777; /* Subtle description */
+  }
+  
+  /* Add Button Styling */
+  .add-btn {
+    --background: #4CAF50; /* Friendly green color for the button */
+    --color: white;         /* Icon color */
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* Circular button */
+    box-shadow: none; /* Remove any shadow that may look like a box */
+    border: none;     /* Remove any border */
+  }
+  
+  ion-fab-button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #a6c5f7;
+    text-align: left;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Responsive Styling */
+  
+  /* Small Devices */
+  @media (max-width: 600px) {
+    .custom-title {
+      font-size: 24px; /* Smaller title for mobile */
+    }
+  
+    .children-card {
+      margin: 10px; /* Reduced margin */
+      border-radius: 10px; /* Slightly smaller radius */
+    }
+  
+    .child-icon {
+      font-size: 24px; /* Smaller icon for mobile */
+    }
+  
+    .child-details h2 {
+      font-size: 18px; /* Smaller font for child names */
+    }
+  
+    .add-btn {
+      width: 60px; /* Smaller button for mobile */
+      height: 60px;
+      font-size: 20px;
+    }
+  }
+  
+  /* Extra Small Devices */
+  @media (max-width: 400px) {
+    .custom-title {
+      font-size: 20px; /* Even smaller title for very small screens */
+    }
+  
+    .children-card {
+      margin: 5px; /* Reduced margin further */
+      border-radius: 8px;
+    }
+  
+    .child-details h2 {
+      font-size: 16px;
+    }
+  
+    .add-btn {
+      width: 50px; /* Smallest button size */
+      height: 50px;
+      font-size: 18px;
+    }
+  }
+  

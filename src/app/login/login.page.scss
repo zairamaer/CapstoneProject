@@ -1,60 +1,162 @@
 /* Header */
 ion-header {
   transition: opacity 0.5s ease-in-out;
-  background: #a6c5f7; 
-  padding: 20px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background: #a6c5f7;
+  padding: 10px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: relative;
+  height: 35vh; /* Scales with viewport height */
 }
 
 /* Toolbar */
 ion-toolbar {
-  --background: none; 
-  color: #fff; 
+  --background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2vw; /* Scales padding based on viewport width */
+}
+
+/* Toolbar Content */
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo Styling */
+.toolbar-logo {
+  margin-top: 10px;
+  height: calc(0.6 * 35vh); /* Default size relative to the header's height */
+  max-width: 90%; /* Ensure it doesn't exceed the container width */
+  width: auto;
+  background-color: white;
+  border-radius: 50%;
 }
 
 /* Custom Title */
 .custom-title {
-  font-size: 30px;
-  font-family: 'Segoe UI', sans-serif; 
+  font-size: 2rem; /* Scales based on root font size */
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
 }
 
+/* Login Container */
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90vw; /* Width is based on viewport width */
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Login Input Fields */
+ion-item {
+  margin-bottom: 16px;
+  --border-width: 0px;
+  --highlight-height: 0px;
+  --inner-border-width: 0px;
+  --min-height: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+}
+
+ion-label {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 1rem; /* Relative unit for scaling */
+}
+
+ion-input {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  border: 2px solid #d0d0d0;
+  margin-top: 4px;
+}
+
+/* Login Button */
+ion-button.login-button {
+  --background: #6c757d;
+  --color: #ffffff;
+  --border-radius: 8px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Mobile devices */
+@media (max-width: 479px) {
+  /* Adjustments for very small devices */
+  .login-container {
+    max-width: 90vw;
+    padding: 15px;
   }
 
-  ion-item {
-    margin-bottom: 16px;
-    --border-width: 0px;
-    --highlight-height: 0px;
-    --inner-border-width: 0px;
-    --min-height: 0px;
-    --padding-top: 0px;
-    --padding-bottom: 0px;
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Smaller logo size for mobile devices */
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Adjustments for small tablets and larger phones */
+  .login-container {
+    max-width: 85vw;
   }
 
-  ion-label {
-    color: #333;
-    margin-bottom: 8px; 
-    font-size: 16px;
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Default size relative to header height */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Adjustments for tablets */
+  .login-container {
+    max-width: 60vw;
+    padding: 30px;
   }
 
-  ion-input {
-    --padding-start: 10px;
-    --padding-end: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    border: 2px solid #d0d0d0;
-    margin-top: 4px; 
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Larger size for tablets and up */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Adjustments for desktops */
+  .login-container {
+    max-width: 50vw;
+    padding: 40px;
   }
 
-  ion-button.login-button {
-    --background: #6c757d; 
-    --color: #ffffff; 
-    --border-radius: 8px; 
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for desktops */
   }
+}
+
+@media (min-width: 1360px) {
+  /* Specific adjustments for larger desktops */
+  .login-container {
+    max-width: 40vw;
+    padding: 50px;
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for larger desktops */
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Adjustments for full HD or larger monitors */
+  .login-container {
+    max-width: 30vw;
+    padding: 60px;
+  }
+
+  .toolbar-logo {
+    height: calc(0.8 * 35vh); /* Maintain size for full HD monitors */
+  }
+}

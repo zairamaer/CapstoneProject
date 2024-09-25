@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/settings"></ion-back-button> <!-- Back arrow button -->
+    </ion-buttons>
+    <ion-title class="custom-title">Profile Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="family-content">
+  <!-- Profile Card -->
+  <ion-card class="profile-card">
+    <ion-card-header>
+      <ion-card-title class="profile-title">User Profile</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item class="input-item">
+        <ion-label>Name</ion-label>
+        <ion-input [(ngModel)]="user.name" placeholder="Enter your name"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label>Email</ion-label>
+        <ion-input [(ngModel)]="user.email" placeholder="Enter your email"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label>Phone</ion-label>
+        <ion-input [(ngModel)]="user.phone" placeholder="Enter your phone number"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Password Card -->
+  <ion-card class="profile-card">
+    <ion-card-header>
+      <ion-card-title class="profile-title">Change Password</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item class="input-item">
+        <ion-label>Current Password</ion-label>
+        <ion-input type="password" placeholder="Enter current password"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label>New Password</ion-label>
+        <ion-input type="password" placeholder="Enter new password"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label>Confirm Password</ion-label>
+        <ion-input type="password" placeholder="Confirm new password"></ion-input>
+      </ion-item>
+
+      <!-- Save Button -->
+      <ion-button expand="block" class="save-button">
+        Save
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

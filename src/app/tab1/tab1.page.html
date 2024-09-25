@@ -5,9 +5,9 @@
       <div class="title-icon-container">
         <!-- Title aligned to the left -->
         <ion-title class="custom-title">ParentPal</ion-title>
-        <!-- Man Icon aligned to the right -->
-        <ion-icon name="settings" class="settings-icon"></ion-icon>
-        <ion-icon name="person" class="man-icon"></ion-icon>
+        <ion-button fill="clear" (click)="openSettings()">
+          <ion-icon name="settings" class="settings-icon"></ion-icon>
+        </ion-button>
       </div>
     </div>
   </ion-toolbar>
@@ -16,6 +16,10 @@
 
 <ion-content [fullscreen]="true" class="centered-content">
   <div class="center-container">
+    <div class="pair">
+    <div class="logo-container">
+      <img src="assets/logo-rmb.png" alt="ParentPal Logo" class="logo-image">
+    </div>
     <!-- Welcome Message -->
     <ion-card>
       <ion-card-header>
@@ -26,17 +30,23 @@
         <p>ParentPal is your trusted companion in tracking your child’s developmental milestones. With insights and analytics, we help you monitor progress and ensure your child is thriving.</p>
       </ion-card-content>
     </ion-card>
+    </div>
 
     <!-- Introduction Section -->
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Understanding Developmental Milestones</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="information-circle-outline" color="tertiary" class="icon-info"></ion-icon>
-        <p>Developmental milestones are key indicators of a child’s growth. Here’s a quick guide based on CDC milestones from 2 months and beyond.</p>
-      </ion-card-content>
-    </ion-card>
+    <div class="milestone">
+      <ion-card class="intro">
+        <ion-card-header>
+          <ion-card-title>Understanding Developmental Milestones</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-icon name="information-circle-outline" color="tertiary" class="icon-info"></ion-icon>
+          <p>Developmental milestones are key indicators of a child’s growth. Here’s a quick guide based on CDC milestones from 2 months and beyond.</p>
+        </ion-card-content>
+      </ion-card>
+      <div class="development">
+        <img src="assets/milestone.png" alt="ParentPal Logo" class="milestone-image">
+      </div>
+    </div>
   </div>
 
   <!-- Container for side-by-side layout -->
