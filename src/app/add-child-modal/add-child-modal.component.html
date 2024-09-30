@@ -7,34 +7,42 @@
 </ion-header>
 
 <ion-content class="modal-content">
-  <ion-card class="custom-card">
-    <ion-card-header>
-      <ion-card-title>Add New Child</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item class="custom-item">
-        <ion-label position="floating">Child Name</ion-label>
-        <ion-input [(ngModel)]="childName"></ion-input>
-      </ion-item>
+  <div class="content-wrapper">
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>Add New Child</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="custom-item">
+          <ion-label position="floating">Child Name</ion-label>
+          <ion-input [(ngModel)]="childName"></ion-input>
+        </ion-item>
 
-      <ion-item class="custom-item">
-        <ion-label position="floating">Child Age</ion-label>
-        <ion-input [(ngModel)]="childAge" type="number"></ion-input>
-        <ion-select [(ngModel)]="ageUnit" placeholder="Select unit">
-          <ion-select-option value="years">Years</ion-select-option>
-          <ion-select-option value="months">Month(s)</ion-select-option>
-        </ion-select>
-      </ion-item>
+        <ion-item class="custom-item">
+          <ion-label position="floating">Date of Birth</ion-label>
+          <ion-datetime
+            display-format="MMM DD, YYYY"
+            [(ngModel)]="childDob"
+            placeholder="Select Date of Birth"
+            (ionChange)="calculateAge()"
+          ></ion-datetime>
+        </ion-item>
 
-      <ion-item class="custom-item">
-        <ion-label position="floating">Gender</ion-label>
-        <ion-select [(ngModel)]="childGender">
-          <ion-select-option value="Male">Male</ion-select-option>
-          <ion-select-option value="Female">Female</ion-select-option>
-        </ion-select>
-      </ion-item>
+        <ion-item class="custom-item">
+          <ion-label>Age</ion-label>
+          <ion-note class="calculated-age">{{ calculatedAge }}</ion-note>
+        </ion-item>
 
-      <ion-button expand="full" class="custom-button" (click)="addChild()">Add Child</ion-button>
-    </ion-card-content>
-  </ion-card>
+        <ion-item class="custom-item">
+          <ion-label position="floating">Gender</ion-label>
+          <ion-select [(ngModel)]="childGender">
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button expand="full" class="custom-button" (click)="addChild()">Add Child</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
