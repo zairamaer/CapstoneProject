@@ -1,7 +1,7 @@
 /* Header */
 ion-header {
     transition: opacity 0.5s ease-in-out;
-    background: #a6c5f7; /* Light blue for a family-friendly look */
+    background: #a6c5f7; 
     padding: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -24,7 +24,7 @@ ion-header {
   
   /* Family-oriented Content Background */
   .family-content {
-    background-color: #f0f8ff; /* Light pastel blue */
+    background-color: #f0f8ff; 
   }
   
   /* Children Card */
@@ -37,30 +37,30 @@ ion-header {
   
   /* Child Icon */
   .child-icon {
-    color: #ffd700; /* Golden color to represent kids */
+    color: #ffd700; 
     font-size: 30px;
   }
   
   /* Child Details */
   .child-details h2 {
     font-family: 'Segoe UI', sans-serif;
-    color: #333; /* Slightly darker text for readability */
+    color: #333; 
   }
   
   .child-details p {
-    color: #777; /* Subtle description */
+    color: #777; 
   }
   
   /* Add Button Styling */
   .add-btn {
-    --background: #4CAF50; /* Friendly green color for the button */
-    --color: white;         /* Icon color */
+    --background: #4a90e2; 
+    --color: white;         
     font-size: 24px;
     width: 70px;
     height: 70px;
-    border-radius: 50%; /* Circular button */
-    box-shadow: none; /* Remove any shadow that may look like a box */
-    border: none;     /* Remove any border */
+    border-radius: 50%;
+    box-shadow: none; 
+    border: none;     
   }
   
   ion-fab-button:hover {
@@ -81,24 +81,24 @@ ion-header {
   /* Small Devices */
   @media (max-width: 600px) {
     .custom-title {
-      font-size: 24px; /* Smaller title for mobile */
+      font-size: 24px; 
     }
   
     .children-card {
-      margin: 10px; /* Reduced margin */
-      border-radius: 10px; /* Slightly smaller radius */
+      margin: 10px; 
+      border-radius: 10px; 
     }
   
     .child-icon {
-      font-size: 24px; /* Smaller icon for mobile */
+      font-size: 24px; 
     }
   
     .child-details h2 {
-      font-size: 18px; /* Smaller font for child names */
+      font-size: 18px;
     }
   
     .add-btn {
-      width: 60px; /* Smaller button for mobile */
+      width: 60px; 
       height: 60px;
       font-size: 20px;
     }
@@ -107,11 +107,11 @@ ion-header {
   /* Extra Small Devices */
   @media (max-width: 400px) {
     .custom-title {
-      font-size: 20px; /* Even smaller title for very small screens */
+      font-size: 20px; 
     }
   
     .children-card {
-      margin: 5px; /* Reduced margin further */
+      margin: 5px; 
       border-radius: 8px;
     }
   
@@ -120,7 +120,7 @@ ion-header {
     }
   
     .add-btn {
-      width: 50px; /* Smallest button size */
+      width: 50px; 
       height: 50px;
       font-size: 18px;
     }
