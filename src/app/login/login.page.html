@@ -9,16 +9,19 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <!-- Login Section -->
   <div class="login-container">
-    <ion-item>
-      <ion-label position="stacked">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
 
-    <ion-button expand="block" (click)="login()" class="login-button ion-margin-top">Login</ion-button>
-    <ion-button expand="block" fill="outline" routerLink="/signup" class="ion-margin-top">Sign Up</ion-button>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="login-button ion-margin-top">Login</ion-button>
+      <ion-button expand="block" routerLink="/signup" class="ion-margin-top">Sign Up</ion-button>
+    </form>
   </div>
 </ion-content>

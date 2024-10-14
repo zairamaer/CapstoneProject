@@ -1,13 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/settings"></ion-back-button> <!-- Back arrow button -->
+      <ion-back-button defaultHref="/settings"></ion-back-button>
     </ion-buttons>
     <ion-title class="custom-title">Profile Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="family-content">
+  <!-- Profile Picture Circle -->
+  <div class="profile-picture-container">
+    <ion-avatar class="profile-avatar">
+      <img src="assets/profile.jpg" alt="Profile Picture">
+    </ion-avatar>
+  </div>
+
   <!-- Profile Card -->
   <ion-card class="profile-card">
     <ion-card-header>

@@ -22,8 +22,13 @@ export class SettingsPage {
 
   // Handle the logout functionality
   logout() {
-    // Add your logout logic here, e.g., clearing authentication tokens, etc.
-    // Redirect to login page or home page
-    this.navCtrl.navigateRoot('/login'); 
+    // Clear authentication tokens or user data from local storage
+    localStorage.removeItem('authToken'); // Replace with your token/key name
+    localStorage.removeItem('userData'); // If you are storing user data
+
+    // Optionally, you can add any additional cleanup logic here
+
+    // Redirect to login page
+    this.navCtrl.navigateRoot('/login');
   }
 }
