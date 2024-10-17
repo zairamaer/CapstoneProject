@@ -10,9 +10,11 @@
 <ion-content [fullscreen]="true" class="family-content">
   <!-- Profile Picture Circle -->
   <div class="profile-picture-container">
-    <ion-avatar class="profile-avatar">
-      <img src="assets/profile.jpg" alt="Profile Picture">
+    <ion-avatar class="profile-avatar" (click)="fileInput.click()" style="cursor: pointer;">
+      <img [src]="user.profile_picture ? user.profile_picture : 'assets/profile.jpg'" alt="Profile Picture">
     </ion-avatar>
+    <!-- Hidden file input for profile picture upload -->
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" #fileInput />
   </div>
 
   <!-- Profile Card -->
@@ -33,6 +35,10 @@
         <ion-label>Phone</ion-label>
         <ion-input [(ngModel)]="user.phone" placeholder="Enter your phone number"></ion-input>
       </ion-item>
+      <!-- Update Profile Button -->
+      <ion-button expand="block" class="update-button" (click)="updateProfileInfo()">
+        Update Profile
+      </ion-button>
     </ion-card-content>
   </ion-card>
 
@@ -44,20 +50,20 @@
     <ion-card-content>
       <ion-item class="input-item">
         <ion-label>Current Password</ion-label>
-        <ion-input type="password" placeholder="Enter current password"></ion-input>
+        <ion-input [(ngModel)]="currentPassword" type="password" placeholder="Enter current password"></ion-input>
       </ion-item>
       <ion-item class="input-item">
         <ion-label>New Password</ion-label>
-        <ion-input type="password" placeholder="Enter new password"></ion-input>
+        <ion-input [(ngModel)]="newPassword" type="password" placeholder="Enter new password"></ion-input>
       </ion-item>
       <ion-item class="input-item">
         <ion-label>Confirm Password</ion-label>
-        <ion-input type="password" placeholder="Confirm new password"></ion-input>
+        <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm new password"></ion-input>
       </ion-item>
 
-      <!-- Save Button -->
-      <ion-button expand="block" class="save-button">
-        Save
+      <!-- Update Password Button -->
+      <ion-button expand="block" class="update-button" (click)="updatePassword()">
+        Update Password
       </ion-button>
     </ion-card-content>
   </ion-card>

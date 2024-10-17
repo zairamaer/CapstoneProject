@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
 
           // Store the access_token received in local storage.
           localStorage.setItem('access_token', response.data.access_token);
+          localStorage.setItem('user_id', response.data.user.id);
 
           // Show a success message.
           const toast = await this.toastController.create({

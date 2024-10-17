@@ -13,6 +13,11 @@
     <ion-card-header>
       <ion-card-title class="title">Children List</ion-card-title>
     </ion-card-header>
+    <ng-container *ngIf="loading">
+      <div class="loading-container">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
+    </ng-container>
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let child of children">
@@ -25,7 +30,7 @@
           </ion-label>
           <ion-buttons slot="end">
             <ion-button color="primary">Edit</ion-button>
-            <ion-button color="danger">Remove</ion-button>
+            <ion-button color="danger" (click)="confirmRemoveChild(child.id, child.name)">Remove</ion-button>
           </ion-buttons>
         </ion-item>
       </ion-list>

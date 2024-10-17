@@ -23,8 +23,7 @@ export class SettingsPage {
   // Handle the logout functionality
   logout() {
     // Clear authentication tokens or user data from local storage
-    localStorage.removeItem('authToken'); // Replace with your token/key name
-    localStorage.removeItem('userData'); // If you are storing user data
+    localStorage.removeItem('access_token'); // Replace with your token/key name
 
     // Optionally, you can add any additional cleanup logic here
 
