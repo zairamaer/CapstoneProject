@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
   templateUrl: 'settings.page.html',
-  styleUrls: ['settings.page.scss']
+  styleUrls: ['settings.page.scss'],
 })
 export class SettingsPage {
   notificationsEnabled: boolean = false;
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private alertController: AlertController
+  ) {}
 
   toggleNotifications(event: any) {
     this.notificationsEnabled = event.detail.checked;
@@ -18,6 +21,31 @@ export class SettingsPage {
   // Method to handle time changes
   onTimeChange(event: any) {
     console.log('Selected time:', event.detail.value);
+  }
+
+  // Method to show confirmation alert before logging out
+  async confirmLogout() {
+    const alert = await this.alertController.create({
+      header: 'Confirm Logout',
+      message: 'Are you sure you want to logout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Logout canceled');
+          },
+        },
+        {
+          text: 'Logout',
+          handler: () => {
+            this.logout();
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   // Handle the logout functionality

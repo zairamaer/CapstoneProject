@@ -32,14 +32,14 @@ export class SignupPage implements OnInit {
 
   async onSignup() {
     if (this.signupForm.invalid) {
-      await this.showToast('Please fill out all required fields correctly.');
+      await this.showToast('Please fill out all required fields correctly.', 'warning');
       return;
     }
 
     const { name, email, password, password_confirmation } = this.signupForm.value;
 
     if (password !== password_confirmation) {
-      await this.showToast('Passwords do not match.');
+      await this.showToast('Passwords do not match.', 'warning');
       return;
     }
 
@@ -53,22 +53,24 @@ export class SignupPage implements OnInit {
     this.http.post(this.apiUrl, payload).subscribe(
       async (response: any) => {
         // Handle successful registration response
-        await this.showToast('Registration successful! Please log in.');
+        await this.showToast('Registration successful! Please log in.',  'success');
+
         this.router.navigate(['/login']);
       },
       async (error) => {
         // Handle error response
         const errorMessage = error?.error?.message || 'Registration failed. Please try again.';
-        await this.showToast(errorMessage);
+        await this.showToast(errorMessage, 'warning');
       }
     );
   }
 
-  private async showToast(message: string) {
+  private async showToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message,
       duration: 3000,
       position: 'top',
+      color
     });
     toast.present();
   }

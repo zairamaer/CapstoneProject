@@ -3,11 +3,7 @@
     <ion-title class="custom-title">Daily Routine</ion-title>
 
     <!-- Dropdown for selecting child -->
-    <ion-select 
-      slot="end" 
-      [(ngModel)]="selectedChild" 
-      (ionChange)="onChildSelect($event)"
-      class="child-select"
+    <ion-select slot="end" [(ngModel)]="selectedChild" (ionChange)="onChildSelect($event)" class="child-select"
       placeholder="Select Child">
       <ion-select-option *ngFor="let child of children" [value]="child">
         {{ child.name }}
@@ -23,24 +19,27 @@
     </ion-toolbar>
   </ion-header>
 
-<!-- Filter by Category -->
-<ion-item class="category-filter-item">
-  <ion-label class="category-filter-label">Time of Day</ion-label>
-  <ion-select class="category-select" [(ngModel)]="selectedCategory" (ionChange)="filterActivities()">
-    <ion-select-option value="all" class="select-option">All</ion-select-option>
-    <ion-select-option value="Morning" class="select-option">Morning</ion-select-option>
-    <ion-select-option value="Mid-Morning" class="select-option">Mid-Morning</ion-select-option>
-    <ion-select-option value="Midday" class="select-option">Midday</ion-select-option>
-    <ion-select-option value="Afternoon" class="select-option">Afternoon</ion-select-option>
-    <ion-select-option value="Evening" class="select-option">Evening</ion-select-option>
-  </ion-select>
-</ion-item>
+  <!-- Filter by Category -->
+  <ion-item class="category-filter-item">
+    <ion-label class="category-filter-label">Time of Day</ion-label>
+    <ion-select class="category-select" [(ngModel)]="selectedCategory" (ionChange)="onCategorySelect($event)">
+      <ion-select-option value="All" class="select-option">All</ion-select-option>
+      <ion-select-option value="Morning" class="select-option">Morning</ion-select-option>
+      <ion-select-option value="Mid-morning" class="select-option">Mid-morning</ion-select-option>
+      <ion-select-option value="Mid-day" class="select-option">Mid-day</ion-select-option>
+      <ion-select-option value="Afternoon" class="select-option">Afternoon</ion-select-option>
+      <ion-select-option value="Evening" class="select-option">Evening</ion-select-option>
+    </ion-select>
+  </ion-item>
 
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <ion-card *ngFor="let activity of filteredActivities; let i = index" class="activity-card">
-          <ion-button fill="clear" color="danger" class="delete-button" (click)="deleteActivity(i)">
+        <div *ngIf="activities.length === 0">
+          <p>No activities found.</p>
+        </div>
+        <ion-card *ngFor="let activity of activities" class="activity-card">
+          <ion-button fill="clear" color="danger" class="delete-button" (click)="deleteActivity(activity.id)">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
           <ion-card-content>

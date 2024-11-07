@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-activity',
@@ -7,11 +9,13 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./add-activity.component.scss'],
 })
 export class AddActivityComponent implements OnInit {
+  @Input() selectedChildId!: string; // Use definite assignment assertion
+  children: { id: string, name: string, age: number, gender: string }[] = [];
   activityTitle: string = '';
   activityDateTime: string = '';
   activityCategory: string = '';
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController, private authService: AuthService, private toastController: ToastController) {}
 
   ngOnInit() {
     this.setDefaultDateTime();
@@ -26,24 +30,35 @@ export class AddActivityComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  async saveActivity() {
-    console.log('Save Activity Called'); // Debugging line
-    if (!this.activityTitle || !this.activityDateTime || !this.activityCategory) {
+  saveActivity() {
+    console.log('Save Activity Called');
+    if (!this.activityTitle || !this.activityDateTime || !this.activityCategory || !this.selectedChildId) {
       console.error('Validation error: missing data');
       return;
     }
-  
-    const [date, time] = this.activityDateTime.split('T');
+
+    // const [date, time] = this.activityDateTime.split('T');
     const activityData = {
-      title: this.activityTitle,
-      date: date,
-      time: time.split('.')[0],
-      category: this.activityCategory,
+      activityTitle: this.activityTitle,
+      activityDateTime: this.activityDateTime,
+      activityCategory: this.activityCategory,
     };
-  
-    await this.modalController.dismiss(activityData);
+
+    // Call storeChildActivity with selectedChildId and activity data
+    this.authService.storeChildActivity(this.selectedChildId, activityData).subscribe(
+      (response) => {
+        if (response && response.status === 'success') {
+          console.log('Activity stored successfully:', response.data);
+          this.modalController.dismiss(activityData); // Dismiss modal with activity data
+        } else {
+          console.error('Failed to store activity:', response);
+        }
+      },
+      (error) => {
+        console.error('Error storing activity:', error);
+      }
+    );
   }
-  
 
   onDateTimeChange(event: any) {
     this.activityDateTime = event.detail.value as string;

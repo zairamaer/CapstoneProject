@@ -15,10 +15,10 @@
       <!-- Routine Title Input -->
       <ion-item class="custom-item">
         <ion-label position="floating">Routine Title</ion-label>
-        <ion-input 
-          [(ngModel)]="activityTitle" 
-          name="title" 
-          placeholder="Enter title" 
+        <ion-input
+          [(ngModel)]="activityTitle"
+          name="title"
+          placeholder="Enter title"
           required
         ></ion-input>
       </ion-item>
@@ -42,11 +42,11 @@
         <ion-select [(ngModel)]="activityCategory" name="category" required>
           <ion-select-option value="Morning">Morning</ion-select-option>
           <ion-select-option value="Mid-Morning">Mid-Morning</ion-select-option>
-          <ion-select-option value="Midday">Midday</ion-select-option>
+          <ion-select-option value="Mid-Day">Mid-Day</ion-select-option>
           <ion-select-option value="Afternoon">Afternoon</ion-select-option>
           <ion-select-option value="Evening">Evening</ion-select-option>
         </ion-select>
-      </ion-item>    
+      </ion-item>
 
       <!-- Save Button -->
       <ion-button expand="full" class="custom-button" (click)="saveActivity()">

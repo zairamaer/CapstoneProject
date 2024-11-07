@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddChildModalComponent } from '../add-child-modal/add-child-modal.component';
+import { AuthService } from '../services/auth.service';
+import { ToastController } from '@ionic/angular';
 
 interface Milestone {
   description: string;
@@ -41,12 +43,6 @@ export class Tab3Page {
   selectedChildAge: string = '';
   selectedChildId: number | null = null;
   totalSometimes = 0;
-
-  children: Child[] = [
-    { id: 1, name: 'Child 1', age: '2 months' },
-    { id: 2, name: 'Child 2', age: '4 months' },
-    { id: 3, name: 'Child 3', age: '6 months' }
-  ];
 
   staticMilestones: { [key: string]: Category[] } = {
     '0-2months': [
@@ -423,14 +419,36 @@ export class Tab3Page {
       }
     ]
   };
-  
+
   categories: Categories = {};
 
   ageOptions: { value: AgeRange, label: string }[] = [];
+  children: Child[] = [];
 
-  constructor(private modalController: ModalController) {
+  constructor(private modalController: ModalController, private authService: AuthService, private toastController: ToastController) {
     this.initializeCategories();
     this.initializeAgeOptions();
+  }
+
+  ngOnInit() {
+    console.log('initilize');
+    this.loadChildren();
+  }
+
+  loadChildren() {
+    this.authService.getChildrenList().subscribe(
+      (response) => {
+        if (response && response.status === 'success') {
+          this.children = response.data as Child[]; // Cast response.data to Child[]
+          console.log(response);
+        } else {
+          console.error('Failed to fetch children list', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching children list', error);
+      }
+    );
   }
 
   initializeCategories() {
@@ -452,6 +470,7 @@ export class Tab3Page {
 
   openChildModal(event: any) {
     this.selectedChildId = event.detail.value;
+    console.log(this.selectedChildId);
     const selectedChild = this.children.find(child => child.id === this.selectedChildId);
     if (selectedChild) {
       this.selectedChildName = selectedChild.name;
@@ -483,7 +502,7 @@ export class Tab3Page {
     }
     return '0-2months'; // Default if age format is unexpected
   }
-  
+
   updateAgeOptions() {
     if (this.selectedChildId !== null) {
       const availableRanges = Object.keys(this.categories[this.selectedChildId]) as AgeRange[];

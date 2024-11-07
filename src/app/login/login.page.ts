@@ -53,10 +53,10 @@ export class LoginPage implements OnInit {
           this.router.navigate(['/tabs']);
         },
         async (error) => {
-          console.error('Login error', error);
+          console.log('Login error', error.error.message);
           // Show an error message if login fails.
           const toast = await this.toastController.create({
-            message: 'Login failed. Please check your credentials.',
+            message: error.error.message,
             duration: 2000,
             color: 'danger'
           });
